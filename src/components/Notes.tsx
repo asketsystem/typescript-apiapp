@@ -3,14 +3,15 @@ import './Notes.css'
 
 interface INotesProps {
     note: Note,
+    handleDelete: (id: string) => void
 }
 
-const Notes: React.FC<INotesProps> = ({ note }) => {
+const Notes: React.FC<INotesProps> = ({ note, handleDelete }) => {
     return (
         <div className="notes-container">
             <h3>{note.title}</h3>
             <p className="text-light">{note.body}</p>
-            <button className="note-btn">Delete</button>
+            <button className="note-btn" onClick={() => handleDelete(note.id)}>Delete</button>
         </div>
     );
 };

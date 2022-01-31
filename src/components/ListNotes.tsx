@@ -7,12 +7,13 @@ interface IListNotesProps {
     setNotes: React.Dispatch<React.SetStateAction<Note[]>>
 }
 
-const ListNotes: React.FC<IListNotesProps> = ({ notes }) => {
+const ListNotes: React.FC<IListNotesProps> = ({ notes, setNotes }) => {
+    const handleDelete = (id: string) => setNotes(notes.filter(notes => notes.id !== id))
 
     return (
         <>
             <h2 className="mt-4">Notes</h2>
-            <div>{notes.map(note => <Notes key={note.id} note={note} /> )}</div>
+            <div>{notes.map(note => <Notes key={note.id} note={note} handleDelete={handleDelete} /> )}</div>
         </>
     );
 };
