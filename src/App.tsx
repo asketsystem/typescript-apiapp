@@ -8,7 +8,7 @@ function App() {
  const [notes, setNotes] = useState<Note[]>([]);
 
  useEffect(() => {
-   fetch('https://jsonplaceholder.typicoder.com/posts')
+   fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(data => setNotes(data))
       .catch(err => console.log(err));
@@ -17,8 +17,8 @@ function App() {
  return (
    <>
       <Header />
-      <div className='container'>
-        <ListNotes notes={notes} />
+      <div className="container">
+        <ListNotes notes={notes} setNotes={setNotes} />
       </div>
    </>
  );
